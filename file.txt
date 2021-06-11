@@ -6158,3 +6158,52 @@ mysql> SELECT EmployeeID, LastName, FirstName, HireDate FROM Employee ORDER BY H
 3 rows in set (0.00 sec)
 
 mysql> notee
+mysql> SELECT COUNT(*) FROM Customer;
++----------+
+| COUNT(*) |
++----------+
+|       59 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT COUNT(FirstName) FROM Customer;
++------------------+
+| COUNT(FirstName) |
++------------------+
+|               59 |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT COUNT(*) FROM Customer
+    -> WHERE FirstName = "Frank";
++----------+
+| COUNT(*) |
++----------+
+|        2 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT COUNT (FirstName) FROM Customer WHERE SupportId = 4;
+ERROR 1630 (42000): FUNCTION Chinook.COUNT does not exist. Check the 'Function Name Parsing and Resolution' section in the Reference Manual
+mysql> SELECT COUNT(FirstName) FROM Customer WHERE SupportId = 4;
+ERROR 1054 (42S22): Unknown column 'SupportId' in 'where clause'
+
+
+mysql> SELECT COUNT(FirstName) FROM Customer WHERE SupportRepId = 4;
++------------------+
+| COUNT(FirstName) |
++------------------+
+|               20 |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT Employee.FirstName AS Employee, COUNT(Customer.FirstName) AS Customer FROM Employee
+    -> JOIN Customer ON Customer.SupportRepId = Employee.EmployeeId
+    -> WHERE Employee.FirstName = 'Jane';
++----------+----------+
+| Employee | Customer |
++----------+----------+
+| Jane     |       21 |
++----------+----------+
+1 row in set (0.00 sec)
+
