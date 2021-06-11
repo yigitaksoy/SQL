@@ -6207,3 +6207,21 @@ mysql> SELECT Employee.FirstName AS Employee, COUNT(Customer.FirstName) AS Custo
 +----------+----------+
 1 row in set (0.00 sec)
 
+mysql> SELECT MIN (LastName) FROM Customer;
+ERROR 1630 (42000): FUNCTION Chinook.MIN does not exist. Check the 'Function Name Parsing and Resolution' section in the Reference Manual
+mysql> SELECT MIN(LastName) FROM Customer;
++---------------+
+| MIN(LastName) |
++---------------+
+| Almeida       |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT MIN(LastName) FROM Customer;
++---------------+
+| MIN(LastName) |
++---------------+
+| Almeida       |
++---------------+
+1 row in set (0.00 sec)
+
