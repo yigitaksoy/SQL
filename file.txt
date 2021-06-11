@@ -8815,3 +8815,35 @@ mysql> SELECT Artist.Name AS Artist, COUNT(Track.TrackId) AS Track FROM Artist
 +--------------+-------+
 5 rows in set (0.01 sec)
 
+mysql> INSERT INTO MediaType (Name)
+    -> VALUES ("Test Media Type 1");
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO Album (Title, ArtistId)
+    -> VALUES ("Boy", 150);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> SELECT AlbumId FROm Album WHERE Title = "Boy";
++---------+
+| AlbumId |
++---------+
+|     348 |
++---------+
+1 row in set (0.00 sec)
+
+mysql> SELECT GenreId FROM Genre WHERE Name = "Rock";
++---------+
+| GenreId |
++---------+
+|       1 |
++---------+
+1 row in set (0.00 sec)
+
+mysql> INSERt INTO TRACK (Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice)
+    -> VALUES ("I Will Follow", 348, 2, 1, "U2", 220000, 1234, 0.99);
+ERROR 1146 (42S02): Table 'Chinook.TRACK' doesn't exist
+mysql> INSERT INTO TRACK (Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES ("I Will Follow", 348, 2, 1, "U2", 220000, 1234, 0.99);
+ERROR 1146 (42S02): Table 'Chinook.TRACK' doesn't exist
+mysql> INSERT INTO Track (Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES ("I Will Follow", 348, 2, 1, "U2", 220000, 1234, 0.99);
+Query OK, 1 row affected (0.02 sec)
+
