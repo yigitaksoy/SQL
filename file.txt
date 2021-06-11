@@ -6225,3 +6225,19 @@ mysql> SELECT MIN(LastName) FROM Customer;
 +---------------+
 1 row in set (0.00 sec)
 
+mysql> SELECT MAX(LastName) FROM Customer;
++---------------+
+| MAX(LastName) |
++---------------+
+| Zimmermann    |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT MAX(HireDate) FROM Employee;
++---------------------+
+| MAX(HireDate)       |
++---------------------+
+| 2004-03-04 00:00:00 |
++---------------------+
+1 row in set (0.00 sec)
+
