@@ -8847,3 +8847,5 @@ ERROR 1146 (42S02): Table 'Chinook.TRACK' doesn't exist
 mysql> INSERT INTO Track (Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES ("I Will Follow", 348, 2, 1, "U2", 220000, 1234, 0.99);
 Query OK, 1 row affected (0.02 sec)
 
+mysql> use Chinook;
+Database changed
