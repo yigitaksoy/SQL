@@ -6241,3 +6241,11 @@ mysql> SELECT MAX(HireDate) FROM Employee;
 +---------------------+
 1 row in set (0.00 sec)
 
+mysql> SELECT AVG(Total) FROM Invoice;
++------------+
+| AVG(Total) |
++------------+
+|   5.651942 |
++------------+
+1 row in set (0.00 sec)
+
